@@ -1,16 +1,19 @@
 import React, { ReactNode } from 'react'
 
+import styles from './Section.module.scss'
+
 type Props = {
     title: string
     children: ReactNode
+    className?: string
 }
 
-export default function Section({ title, children }: Props) {
+export default function Section({ title, children, className = '' }: Props) {
     return (
-        <>
-            <h4>{title}</h4>
+        <div className={[styles.section, className].join(' ')}>
+            <h4 className={styles.sectionTitle}>{title}</h4>
 
-            {children}
-        </>
+            <div className={styles.sectionContent}>{children}</div>
+        </div>
     )
 }

@@ -1,0 +1,21 @@
+.main {
+    padding: 2em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .searchbar {
+        display: flex;
+        align-items: center;
+        height: 20vh;
+    }
+
+    .results {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

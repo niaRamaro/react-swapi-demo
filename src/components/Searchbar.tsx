@@ -1,22 +1,28 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
+import MaterialIcon from './MaterialIcon'
 import { RESSOURCES } from '../constants/search'
 import { SearchQuery } from '../types/search'
 
 type Props = {
     initialValue: SearchQuery
     onChange: (searchQuery: SearchQuery) => void
+    className: string
 }
 
-export default function Searchbar({ initialValue, onChange }: Props) {
+export default function Searchbar({
+    initialValue,
+    onChange,
+    className
+}: Props) {
     const types = [''].concat(Object.values(RESSOURCES))
     const { register, handleSubmit, getValues } = useForm({
         defaultValues: initialValue
     })
 
     return (
-        <form onSubmit={handleSubmit(onChange)}>
+        <form className={className} onSubmit={handleSubmit(onChange)}>
             <input
                 type="text"
                 name="keyword"
@@ -37,7 +43,9 @@ export default function Searchbar({ initialValue, onChange }: Props) {
                 ))}
             </select>
 
-            <button type="submit">Search</button>
+            <button type="submit">
+                <MaterialIcon icon="search" />
+            </button>
         </form>
     )
 }

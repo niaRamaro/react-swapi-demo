@@ -2,15 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 
 import Loader from './Loader'
-import SearchResultSection from './SearchResultSection'
+import SearchResultList from './SearchResultList'
+import Section from './Section'
+import styles from './SearchResults.module.scss'
 import { searchAPI } from '../service/api'
 
 type Props = {
     type: string
     keyword: string
+    className: string
 }
 
-export default function SearchResults({ type, keyword }: Props) {
+export default function SearchResults({ type, keyword, className }: Props) {
     const [isLoading, setIsLoading] = useState(true)
     const [hasError, setHasError] = useState(false)
     const [results, setResults] = useState(null as any)
@@ -60,27 +63,31 @@ export default function SearchResults({ type, keyword }: Props) {
         fetchResults()
     }, [keyword, type])
 
-    if (isLoading) {
-        return <Loader />
-    }
+    const showContent = () => {
+        if (isLoading) {
+            return <Loader />
+        }
 
-    if (hasError) {
-        return <p>Error</p>
-    }
+        if (hasError) {
+            return <p>Error</p>
+        }
 
-    return (
-        <>
-            {Object.keys(results).map(
-                (ressourceType) =>
-                    results[ressourceType] && (
-                        <SearchResultSection
+        return Object.keys(results).map(
+            (ressourceType) =>
+                results[ressourceType] && (
+                    <Section
+                        title={ressourceType.toUpperCase()}
+                        key={ressourceType}
+                        className={styles.section}
+                    >
+                        <SearchResultList
                             type={ressourceType}
-                            title={ressourceType.toUpperCase()}
                             results={results[ressourceType]}
-                            key={ressourceType}
                         />
-                    )
-            )}
-        </>
-    )
+                    </Section>
+                )
+        )
+    }
+
+    return <div className={className}>{showContent()}</div>
 }

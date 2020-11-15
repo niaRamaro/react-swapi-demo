@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import SearchResults from '../components/SearchResults'
 import Searchbar from '../components/Searchbar'
+import styles from './HomePage.module.scss'
 import useQueryParams from '../hooks/useQueryParams'
 import { RESSOURCES } from '../constants/search'
 import { SearchQuery } from '../types/search'
@@ -31,14 +32,19 @@ export default function Homepage() {
     }, [])
 
     return (
-        <>
+        <div className={styles.main}>
             <Searchbar
+                className={styles.searchbar}
                 initialValue={{ keyword, type }}
                 onChange={onSearchChange}
             />
             {showResults && (
-                <SearchResults type={type} keyword={throttledKeyword} />
+                <SearchResults
+                    type={type}
+                    keyword={throttledKeyword}
+                    className={styles.results}
+                />
             )}
-        </>
+        </div>
     )
 }
