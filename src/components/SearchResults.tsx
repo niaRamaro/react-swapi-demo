@@ -74,7 +74,8 @@ export default function SearchResults({ type, keyword }: Props) {
                 (ressourceType) =>
                     results[ressourceType] && (
                         <SearchResultSection
-                            title={ressourceType}
+                            type={ressourceType}
+                            title={ressourceType.toUpperCase()}
                             results={results[ressourceType]}
                             key={ressourceType}
                         />
