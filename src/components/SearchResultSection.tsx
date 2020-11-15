@@ -14,7 +14,7 @@ export default function SearchResultSection({ title, results }: Props) {
 
             <div>
                 {results.results.map((result: any) => (
-                    <div>{result.name}</div>
+                    <div key={result.id}>{result.name}</div>
                 ))}
             </div>
         </div>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
 
 import Loader from './Loader'
 import SearchResultSection from './SearchResultSection'
-import { SearchQuery } from '../types/search'
 import { searchAPI } from '../service/api'
 
 type Props = {
@@ -18,8 +18,10 @@ export default function SearchResults({ type, keyword }: Props) {
         pendingRequest,
         setPendingRequest
     ] = useState<AbortController | null>()
+    const history = useHistory()
+    const location = useLocation()
 
-    const fetchResults = async (searchQuery: SearchQuery) => {
+    const fetchResults = async () => {
         setIsLoading(true)
 
         if (pendingRequest) {
@@ -31,7 +33,7 @@ export default function SearchResults({ type, keyword }: Props) {
 
         try {
             const { body, status } = await searchAPI(
-                searchQuery,
+                { type, keyword },
                 controller.signal
             )
             setPendingRequest(null)
@@ -47,8 +49,15 @@ export default function SearchResults({ type, keyword }: Props) {
         }
     }
 
+    const setQueryParams = () =>
+        history.push({
+            pathname: location.pathname,
+            search: new URLSearchParams({ type, keyword }).toString()
+        })
+
     useEffect(() => {
-        fetchResults({ type, keyword })
+        setQueryParams()
+        fetchResults()
     }, [keyword, type])
 
     if (isLoading) {
