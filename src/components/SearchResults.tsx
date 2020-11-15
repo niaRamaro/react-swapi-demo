@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 
-import Loader from './Loader'
+import Loader from './shared/Loader'
 import SearchResultList from './SearchResultList'
-import Section from './Section'
+import Section from './shared/Section'
 import styles from './SearchResults.module.scss'
 import { searchAPI } from '../service/api'
 

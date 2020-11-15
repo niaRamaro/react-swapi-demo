@@ -2,7 +2,7 @@ import React from 'react'
 
 import FullPlanetInfos from './infos/FullPlanetInfos'
 import RelationsList from './RelationsList'
-import Section from '../Section'
+import Section from '../shared/Section'
 import { FullPlanet } from '../../types/planet'
 import { RESSOURCES } from '../../constants/search'
 

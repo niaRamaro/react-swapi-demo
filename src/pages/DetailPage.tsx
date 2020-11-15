@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 
 import FilmDetail from '../components/details/FilmDetail'
-import Loader from '../components/Loader'
+import Loader from '../components/shared/Loader'
 import PersonDetail from '../components/details/PersonDetail'
 import PlanetDetail from '../components/details/PlanetDetail'
 import SpeciesDetail from '../components/details/SpeciesDetail'

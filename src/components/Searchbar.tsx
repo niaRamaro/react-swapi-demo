@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-import MaterialIcon from './MaterialIcon'
+import MaterialIcon from './shared/MaterialIcon'
 import { RESSOURCES } from '../constants/search'
 import { SearchQuery } from '../types/search'
 

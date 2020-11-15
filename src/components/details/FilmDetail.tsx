@@ -2,7 +2,7 @@ import React from 'react'
 
 import FullFilmInfos from './infos/FullFilmInfos'
 import RelationsList from './RelationsList'
-import Section from '../Section'
+import Section from '../shared/Section'
 import { FullFilm } from '../../types/film'
 import { RESSOURCES } from '../../constants/search'
 

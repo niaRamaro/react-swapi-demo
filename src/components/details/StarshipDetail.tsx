@@ -2,7 +2,7 @@ import React from 'react'
 
 import FullStarshipInfos from './infos/FullStarshipInfos'
 import RelationsList from './RelationsList'
-import Section from '../Section'
+import Section from '../shared/Section'
 import { FullStarship } from '../../types/starship'
 import { RESSOURCES } from '../../constants/search'
 

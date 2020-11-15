@@ -3,7 +3,7 @@ import React from 'react'
 import FullPersonInfos from './infos/FullPersonInfos'
 import PlanetListItem from './listItems/PlanetListItem'
 import RelationsList from './RelationsList'
-import Section from '../Section'
+import Section from '../shared/Section'
 import { FullPerson } from '../../types/person'
 import { RESSOURCES } from '../../constants/search'
 

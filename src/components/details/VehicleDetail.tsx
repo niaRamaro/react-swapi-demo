@@ -2,7 +2,7 @@ import React from 'react'
 
 import FullVehicleInfos from './infos/FullVehicleInfos'
 import RelationsList from './RelationsList'
-import Section from '../Section'
+import Section from '../shared/Section'
 import { FullVehicle } from '../../types/vehicle'
 import { RESSOURCES } from '../../constants/search'
 
