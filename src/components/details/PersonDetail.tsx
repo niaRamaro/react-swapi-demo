@@ -19,7 +19,7 @@ export default function PersonDetail({ person }: Props) {
             </Section>
 
             {!!person.films.length && (
-                <Section title="FILMS">
+                <Section title={`FILMS (${person.films.length})`}>
                     <RelationsList
                         type={RESSOURCES.FILMS}
                         relations={person.films}
@@ -32,7 +32,7 @@ export default function PersonDetail({ person }: Props) {
                 </Section>
             )}
             {!!person.species.length && (
-                <Section title="SPECIES">
+                <Section title={`SPECIES (${person.species.length})`}>
                     <RelationsList
                         type={RESSOURCES.SPECIES}
                         relations={person.species}
@@ -40,7 +40,7 @@ export default function PersonDetail({ person }: Props) {
                 </Section>
             )}
             {!!person.starships.length && (
-                <Section title="STARSHIPS">
+                <Section title={`STARSHIPS (${person.starships.length})`}>
                     <RelationsList
                         type={RESSOURCES.STARSHIPS}
                         relations={person.starships}
@@ -48,7 +48,7 @@ export default function PersonDetail({ person }: Props) {
                 </Section>
             )}
             {!!person.vehicles.length && (
-                <Section title="SPECIES">
+                <Section title={`VEHICLES (${person.vehicles.length})`}>
                     <RelationsList
                         type={RESSOURCES.VEHICLES}
                         relations={person.vehicles}

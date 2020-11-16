@@ -24,7 +24,7 @@ export default function SpeciesDetail({ species }: Props) {
                 </Section>
             )}
             {!!species.people.length && (
-                <Section title="PEOPLE">
+                <Section title={`PEOPLE (${species.people.length})`}>
                     <RelationsList
                         type={RESSOURCES.PEOPLE}
                         relations={species.people}
@@ -32,7 +32,7 @@ export default function SpeciesDetail({ species }: Props) {
                 </Section>
             )}
             {!!species.films.length && (
-                <Section title="FILMS">
+                <Section title={`FILMS (${species.films.length})`}>
                     <RelationsList
                         type={RESSOURCES.FILMS}
                         relations={species.films}

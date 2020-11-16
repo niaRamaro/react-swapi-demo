@@ -18,7 +18,7 @@ export default function VehicleDetail({ vehicle }: Props) {
             </Section>
 
             {!!vehicle.pilots.length && (
-                <Section title="PILOTS">
+                <Section title={`PILOTS (${vehicle.pilots.length})`}>
                     <RelationsList
                         type={RESSOURCES.PEOPLE}
                         relations={vehicle.pilots}
@@ -26,7 +26,7 @@ export default function VehicleDetail({ vehicle }: Props) {
                 </Section>
             )}
             {!!vehicle.films.length && (
-                <Section title="FILMS">
+                <Section title={`FILMS (${vehicle.films.length})`}>
                     <RelationsList
                         type={RESSOURCES.FILMS}
                         relations={vehicle.films}

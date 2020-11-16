@@ -1,18 +1,24 @@
-.vCentered {
-    display: flex;
-    align-items: center;
-}
-
 .info {
     margin: 0.5em 0;
-
-    .icon {
-        margin-right: 0.5em;
-        font-size: 2em;
-    }
+    display: flex;
 
     .label {
-        margin-right: 0.7em;
+        font-size: 1.1em;
         font-weight: bold;
+        margin-right: 0.7em;
+        display: flex;
+        align-items: center;
+
+        .icon {
+            margin-right: 0.5em;
+            font-size: 2em;
+        }
+    }
+
+    .value {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        word-break: break-word;
     }
 }

@@ -12,11 +12,15 @@ type Props = {
 export default function Info({ icon, label, value }: Props) {
     return (
         <div className={[styles.vCentered, styles.info].join(' ')}>
-            <span className={[styles.vCentered, styles.label].join(' ')}>
-                <MaterialIcon icon={icon} className={styles.icon} />
-                <span>{label} : </span>
+            <span className={styles.labelContainer}>
+                <span className={styles.label}>
+                    <MaterialIcon icon={icon} className={styles.icon} />
+                    <span>{label} : </span>
+                </span>
             </span>
-            <span>{value}</span>
+            <span className={styles.value}>
+                <span>{value}</span>
+            </span>
         </div>
     )
 }

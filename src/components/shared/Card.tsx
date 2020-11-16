@@ -7,6 +7,10 @@ type Props = React.DetailedHTMLProps<
     HTMLDivElement
 >
 
-export default function Card({ children }: Props) {
-    return <div className={styles.card}>{children}</div>
+export default function Card({ children, className, ...rest }: Props) {
+    return (
+        <div className={[className, styles.card].join(' ')} {...rest}>
+            {children}
+        </div>
+    )
 }

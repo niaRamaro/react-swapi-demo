@@ -18,7 +18,7 @@ export default function StarshipDetail({ starship }: Props) {
             </Section>
 
             {!!starship.pilots.length && (
-                <Section title="PILOTS">
+                <Section title={`PILOTS (${starship.pilots.length})`}>
                     <RelationsList
                         type={RESSOURCES.PEOPLE}
                         relations={starship.pilots}
@@ -26,7 +26,7 @@ export default function StarshipDetail({ starship }: Props) {
                 </Section>
             )}
             {!!starship.films.length && (
-                <Section title="FILMS">
+                <Section title={`FILMS (${starship.films.length})`}>
                     <RelationsList
                         type={RESSOURCES.FILMS}
                         relations={starship.films}

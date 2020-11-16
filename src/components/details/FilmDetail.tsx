@@ -4,7 +4,7 @@ import FullFilmInfos from './infos/FullFilmInfos'
 import RelationsList from './RelationsList'
 import Section from '../shared/Section'
 import { FullFilm } from '../../types/film'
-import { RESSOURCES } from '../../constants/search'
+import { RELATION_ITEM_PER_ROW, RESSOURCES } from '../../constants/search'
 
 type Props = {
     film: FullFilm
@@ -18,7 +18,7 @@ export default function FilmDetail({ film }: Props) {
             </Section>
 
             {!!film.characters.length && (
-                <Section title="CHARACTERS">
+                <Section title={`CHARACTERS (${film.characters.length})`}>
                     <RelationsList
                         type={RESSOURCES.PEOPLE}
                         relations={film.characters}
@@ -26,7 +26,7 @@ export default function FilmDetail({ film }: Props) {
                 </Section>
             )}
             {!!film.planets.length && (
-                <Section title="PLANETS">
+                <Section title={`PLANETS (${film.planets.length})`}>
                     <RelationsList
                         type={RESSOURCES.PLANETS}
                         relations={film.planets}
@@ -34,7 +34,7 @@ export default function FilmDetail({ film }: Props) {
                 </Section>
             )}
             {!!film.starships.length && (
-                <Section title="STARSHIPS">
+                <Section title={`STARSHIPS (${film.starships.length})`}>
                     <RelationsList
                         type={RESSOURCES.STARSHIPS}
                         relations={film.starships}
@@ -42,7 +42,7 @@ export default function FilmDetail({ film }: Props) {
                 </Section>
             )}
             {!!film.vehicles.length && (
-                <Section title="VEHICLES">
+                <Section title={`VEHICLES (${film.vehicles.length})`}>
                     <RelationsList
                         type={RESSOURCES.VEHICLES}
                         relations={film.vehicles}
@@ -50,7 +50,7 @@ export default function FilmDetail({ film }: Props) {
                 </Section>
             )}
             {!!film.species.length && (
-                <Section title="SPECIES">
+                <Section title={`SPECIES (${film.species.length})`}>
                     <RelationsList
                         type={RESSOURCES.SPECIES}
                         relations={film.species}
