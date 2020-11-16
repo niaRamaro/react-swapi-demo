@@ -5,8 +5,13 @@
         flex: 1;
         display: flex;
 
-        .button {
-            width: 100%;
+        .buttonContainer {
+            margin-top: 2em;
+
+            .button {
+                width: 100%;
+                margin: 0.5em 0;
+            }
         }
     }
 }
