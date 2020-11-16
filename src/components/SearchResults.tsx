@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 
 import Loader from './shared/Loader'
-import SearchResultList from './SearchResultList'
+import RessourceList from './RessourceList'
 import Section from './shared/Section'
 import styles from './SearchResults.module.scss'
+import { RESSOURCES } from '../constants/search'
+import { ResultTree, SearchResult } from '../types/search'
 import { searchAPI } from '../service/api'
 
 type Props = React.DetailedHTMLProps<
@@ -18,13 +20,41 @@ type Props = React.DetailedHTMLProps<
 export default function SearchResults({ type, keyword, className }: Props) {
     const [isLoading, setIsLoading] = useState(true)
     const [hasError, setHasError] = useState(false)
-    const [results, setResults] = useState(null as any)
+    const [results, setResults] = useState<ResultTree>({} as ResultTree)
     const [
         pendingRequest,
         setPendingRequest
     ] = useState<AbortController | null>()
     const history = useHistory()
     const location = useLocation()
+
+    const loadNextPage = async (type: RESSOURCES, page: number) => {
+        try {
+            const { body, status } = await searchAPI({
+                type,
+                keyword,
+                page: `${page}`
+            })
+
+            if (status === 200) {
+                const ressourceResults = body[type]
+                setResults((prevResults) => ({
+                    ...prevResults,
+                    [type]: {
+                        ...prevResults[type],
+                        next: ressourceResults.next,
+                        results: [
+                            ...(prevResults[type as RESSOURCES] as SearchResult)
+                                .results,
+                            ...ressourceResults.results
+                        ]
+                    }
+                }))
+            }
+        } catch (e) {
+            console.log('Load next page failed', type, page)
+        }
+    }
 
     useEffect(() => {
         const setQueryParams = () =>
@@ -74,22 +104,33 @@ export default function SearchResults({ type, keyword, className }: Props) {
             return <p>Error</p>
         }
 
-        return Object.keys(results).map(
-            (ressourceType) =>
-                results[ressourceType] && (
-                    <Section
-                        title={`${ressourceType.toUpperCase()} (${
-                            results[ressourceType].count
-                        })`}
-                        key={ressourceType}
-                        className={styles.section}
-                    >
-                        <SearchResultList
-                            type={ressourceType}
-                            results={results[ressourceType]}
-                        />
-                    </Section>
-                )
+        return (
+            <>
+                {Object.keys(results).map(
+                    (ressourceType) =>
+                        results[ressourceType as RESSOURCES] && (
+                            <Section
+                                title={`${ressourceType.toUpperCase()} (${
+                                    (results[
+                                        ressourceType as RESSOURCES
+                                    ] as SearchResult).count
+                                })`}
+                                key={ressourceType}
+                                className={styles.section}
+                            >
+                                <RessourceList
+                                    type={ressourceType as RESSOURCES}
+                                    results={
+                                        results[
+                                            ressourceType as RESSOURCES
+                                        ] as SearchResult
+                                    }
+                                    onLoadMore={loadNextPage}
+                                />
+                            </Section>
+                        )
+                )}
+            </>
         )
     }
 

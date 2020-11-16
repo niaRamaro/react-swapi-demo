@@ -10,7 +10,7 @@ export type APIResponse<T> = {
 
 export async function searchAPI(
     params: { [key: string]: string },
-    signal: AbortSignal
+    signal?: AbortSignal
 ): Promise<APIResponse<any>> {
     const queryString = new URLSearchParams(params).toString()
 
