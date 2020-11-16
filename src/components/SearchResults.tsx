@@ -78,7 +78,9 @@ export default function SearchResults({ type, keyword, className }: Props) {
             (ressourceType) =>
                 results[ressourceType] && (
                     <Section
-                        title={ressourceType.toUpperCase()}
+                        title={`${ressourceType.toUpperCase()} (${
+                            results[ressourceType].count
+                        })`}
                         key={ressourceType}
                         className={styles.section}
                     >
