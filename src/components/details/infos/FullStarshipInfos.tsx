@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Info from '../../shared/Info'
 import { StarshipInfos } from '../../../types/starship'
 
 type Props = {
@@ -8,55 +9,51 @@ type Props = {
 
 export default function FullStarshipInfos({ starship }: Props) {
     return (
-        <ul>
-            <li>
-                <span>Name : </span>
-                <span>{starship.name}</span>
-            </li>
-            <li>
-                <span>Model : </span>
-                <span>{starship.model}</span>
-            </li>
-            <li>
-                <span>Starship Class : </span>
-                <span>{starship.starship_class}</span>
-            </li>
-            <li>
-                <span>Manufacturer : </span>
-                <span>{starship.manufacturer}</span>
-            </li>
-            <li>
-                <span>Cost In Credits : </span>
-                <span>{starship.cost_in_credits}</span>
-            </li>
-            <li>
-                <span>Length : </span>
-                <span>{starship.length}</span>
-            </li>
-            <li>
-                <span>Crew : </span>
-                <span>{starship.crew}</span>
-            </li>
-            <li>
-                <span>Passengers : </span>
-                <span>{starship.passengers}</span>
-            </li>
-            <li>
-                <span>Max Atmosphering Speed : </span>
-                <span>{starship.max_atmosphering_speed}</span>
-            </li>
-            <li>
-                <span>Hyperdrive Rating: </span>
-                <span>{starship.hyperdrive_rating}</span>
-            </li>
-            <li>
-                <span>MGLT : </span>
-                <span>{starship.MGLT}</span>
-            </li>
-            <li>
-                <span>Cargo Capacity : </span>
-                <span>{starship.cargo_capacity}</span>
-            </li>
-        </ul>
+        <>
+            <Info
+                icon="airplanemode_active"
+                label="Name"
+                value={starship.name}
+            />
+            <Info icon="scatter_plot" label="Model" value={starship.model} />
+            <Info
+                icon="category"
+                label="Starship Class"
+                value={starship.starship_class}
+            />
+            <Info
+                icon="corporate_fare"
+                label="Manufacturer"
+                value={starship.manufacturer}
+            />
+            <Info
+                icon="credit_card"
+                label="Cost In Credits"
+                value={starship.cost_in_credits}
+            />
+            <Info icon="straighten" label="Length" value={starship.length} />
+            <Info icon="groups" label="Crew" value={starship.crew} />
+            <Info
+                icon="reduce_capacity"
+                label="Passengers"
+                value={starship.passengers}
+            />
+            <Info
+                icon="speed"
+                label="Max Atmosphering Speed"
+                value={starship.max_atmosphering_speed}
+            />
+            <Info
+                icon="star"
+                label="Hyperdrive Rating"
+                value={starship.hyperdrive_rating}
+            />
+            <Info icon="flash_on" label="MGLT" value={starship.MGLT} />
+            <Info
+                icon="luggage"
+                label="Cargo Capacity"
+                value={starship.cargo_capacity}
+            />
+        </>
     )
 }

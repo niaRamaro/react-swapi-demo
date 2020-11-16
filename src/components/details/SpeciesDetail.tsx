@@ -14,7 +14,9 @@ type Props = {
 export default function SpeciesDetail({ species }: Props) {
     return (
         <>
-            <FullSpeciesInfos species={species} />
+            <Section title="SPECIES">
+                <FullSpeciesInfos species={species} />
+            </Section>
 
             {!!species.homeworld && (
                 <Section title="HOMEWORLD">

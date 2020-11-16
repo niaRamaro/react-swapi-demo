@@ -13,7 +13,9 @@ type Props = {
 export default function StarshipDetail({ starship }: Props) {
     return (
         <>
-            <FullStarshipInfos starship={starship} />
+            <Section title="STARSHIP">
+                <FullStarshipInfos starship={starship} />
+            </Section>
 
             {!!starship.pilots.length && (
                 <Section title="PILOTS">

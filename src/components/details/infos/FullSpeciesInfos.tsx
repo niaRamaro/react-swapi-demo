@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Info from '../../shared/Info'
 import { SpeciesInfos } from '../../../types/species'
 
 type Props = {
@@ -8,43 +9,48 @@ type Props = {
 
 export default function FullSpeciesInfos({ species }: Props) {
     return (
-        <ul>
-            <li>
-                <span>Name : </span>
-                <span>{species.name}</span>
-            </li>
-            <li>
-                <span>Classification : </span>
-                <span>{species.classification}</span>
-            </li>
-            <li>
-                <span>Designation : </span>
-                <span>{species.designation}</span>
-            </li>
-            <li>
-                <span>Average Height : </span>
-                <span>{species.average_height}</span>
-            </li>
-            <li>
-                <span>Average Lifespan : </span>
-                <span>{species.average_lifespan}</span>
-            </li>
-            <li>
-                <span>Eye Colors : </span>
-                <span>{species.eye_colors}</span>
-            </li>
-            <li>
-                <span>Hair Colors : </span>
-                <span>{species.hair_colors}</span>
-            </li>
-            <li>
-                <span>Skin Colors : </span>
-                <span>{species.skin_colors}</span>
-            </li>
-            <li>
-                <span>Language : </span>
-                <span>{species.language}</span>
-            </li>
-        </ul>
+        <>
+            <Info icon="people" label="Name" value={species.name} />
+            <Info
+                icon="category"
+                label="Classification"
+                value={species.classification}
+            />
+            <Info
+                icon="psychology"
+                label="Designation"
+                value={species.designation}
+            />
+            <Info
+                icon="height"
+                label="Average Height"
+                value={species.average_height}
+            />
+            <Info
+                icon="elderly"
+                label="Average Lifespan"
+                value={species.average_lifespan}
+            />
+            <Info
+                icon="palette"
+                label="Eye Colors"
+                value={species.eye_colors}
+            />
+            <Info
+                icon="palette"
+                label="Hair Colors"
+                value={species.hair_colors}
+            />
+            <Info
+                icon="palette"
+                label="Skin Colors"
+                value={species.skin_colors}
+            />
+            <Info
+                icon="record_voice_over"
+                label="Language"
+                value={species.language}
+            />
+        </>
     )
 }

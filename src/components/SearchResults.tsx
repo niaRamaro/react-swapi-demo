@@ -7,10 +7,12 @@ import Section from './shared/Section'
 import styles from './SearchResults.module.scss'
 import { searchAPI } from '../service/api'
 
-type Props = {
+type Props = React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+> & {
     type: string
     keyword: string
-    className: string
 }
 
 export default function SearchResults({ type, keyword, className }: Props) {

@@ -13,7 +13,9 @@ type Props = {
 export default function PlanetDetail({ planet }: Props) {
     return (
         <>
-            <FullPlanetInfos planet={planet} />
+            <Section title="PLANET">
+                <FullPlanetInfos planet={planet} />
+            </Section>
 
             {!!planet.residents.length && (
                 <Section title="RESIDENTS">

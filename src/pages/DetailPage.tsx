@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 
+import Button from '../components/shared/Button'
 import FilmDetail from '../components/details/FilmDetail'
 import Loader from '../components/shared/Loader'
+import MaterialIcon from '../components/shared/MaterialIcon'
 import PersonDetail from '../components/details/PersonDetail'
 import PlanetDetail from '../components/details/PlanetDetail'
 import SpeciesDetail from '../components/details/SpeciesDetail'
 import StarshipDetail from '../components/details/StarshipDetail'
 import VehicleDetail from '../components/details/VehicleDetail'
+import styles from './DetailPage.module.scss'
 import { FullFilm } from '../types/film'
 import { FullPerson } from '../types/person'
 import { FullPlanet } from '../types/planet'
@@ -75,12 +78,17 @@ export default function DetailPage() {
         }
     }
     return (
-        <>
-            <Link to={{ pathname: '/', search }}>
-                <button>Back</button>
-            </Link>
+        <div className={styles.main}>
+            <div className={styles.buttonContainer}>
+                <Link to={{ pathname: '/', search }}>
+                    <Button className={styles.button}>
+                        <MaterialIcon icon="keyboard_backspace" />
+                        <span>Back to search</span>
+                    </Button>
+                </Link>
+            </div>
 
             {showContent()}
-        </>
+        </div>
     )
 }

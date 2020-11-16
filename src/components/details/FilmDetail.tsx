@@ -13,7 +13,9 @@ type Props = {
 export default function FilmDetail({ film }: Props) {
     return (
         <>
-            <FullFilmInfos film={film} />
+            <Section title="FILM">
+                <FullFilmInfos film={film} />
+            </Section>
 
             {!!film.characters.length && (
                 <Section title="CHARACTERS">

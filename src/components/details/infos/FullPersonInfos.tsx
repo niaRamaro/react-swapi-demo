@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Info from '../../shared/Info'
 import { PersonInfos } from '../../../types/person'
 
 type Props = {
@@ -8,39 +9,15 @@ type Props = {
 
 export default function FullPersonInfos({ person }: Props) {
     return (
-        <ul>
-            <li>
-                <span>Name : </span>
-                <span>{person.name}</span>
-            </li>
-            <li>
-                <span>Gender : </span>
-                <span>{person.gender}</span>
-            </li>
-            <li>
-                <span>Birth Year : </span>
-                <span>{person.birth_year}</span>
-            </li>
-            <li>
-                <span>Skin Color : </span>
-                <span>{person.skin_color}</span>
-            </li>
-            <li>
-                <span>Eye Color : </span>
-                <span>{person.eye_color}</span>
-            </li>
-            <li>
-                <span>Hair Color : </span>
-                <span>{person.hair_color}</span>
-            </li>
-            <li>
-                <span>Mass : </span>
-                <span>{person.mass}</span>
-            </li>
-            <li>
-                <span>Height : </span>
-                <span>{person.height}</span>
-            </li>
-        </ul>
+        <>
+            <Info icon="face" label="Name" value={person.name} />
+            <Info icon="wc" label="Gender" value={person.gender} />
+            <Info icon="event" label="Birth Year" value={person.birth_year} />
+            <Info icon="palette" label="Skin Color" value={person.skin_color} />
+            <Info icon="palette" label="Eye Color" value={person.eye_color} />
+            <Info icon="palette" label="Hair Color" value={person.hair_color} />
+            <Info icon="adjust" label="Mass" value={person.mass} />
+            <Info icon="height" label="Height" value={person.height} />
+        </>
     )
 }

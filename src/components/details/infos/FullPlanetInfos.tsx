@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Info from '../../shared/Info'
 import { PlanetInfos } from '../../../types/planet'
 
 type Props = {
@@ -8,43 +9,36 @@ type Props = {
 
 export default function FullPlanetInfos({ planet }: Props) {
     return (
-        <ul>
-            <li>
-                <span>Name : </span>
-                <span>{planet.name}</span>
-            </li>
-            <li>
-                <span>Diameter : </span>
-                <span>{planet.diameter}</span>
-            </li>
-            <li>
-                <span>Rotation Period : </span>
-                <span>{planet.rotation_period}</span>
-            </li>
-            <li>
-                <span>Orbital Period : </span>
-                <span>{planet.orbital_period}</span>
-            </li>
-            <li>
-                <span>Gravity : </span>
-                <span>{planet.gravity}</span>
-            </li>
-            <li>
-                <span>Population : </span>
-                <span>{planet.population}</span>
-            </li>
-            <li>
-                <span>Climate : </span>
-                <span>{planet.climate}</span>
-            </li>
-            <li>
-                <span>Terrain : </span>
-                <span>{planet.terrain}</span>
-            </li>
-            <li>
-                <span>Surface Water : </span>
-                <span>{planet.surface_water}</span>
-            </li>
-        </ul>
+        <>
+            <Info icon="public" label="Name" value={planet.name} />
+            <Info
+                icon="not_interested"
+                label="Diameter"
+                value={planet.diameter}
+            />
+            <Info
+                icon="360"
+                label="Rotation Period"
+                value={planet.rotation_period}
+            />
+            <Info
+                icon="settings_backup_restore"
+                label="Orbital Period"
+                value={planet.orbital_period}
+            />
+            <Info
+                icon="arrow_downward"
+                label="Gravity"
+                value={planet.gravity}
+            />
+            <Info icon="groups" label="Population" value={planet.population} />
+            <Info icon="wb_sunny" label="Climate" value={planet.climate} />
+            <Info icon="terrain" label="Terrain" value={planet.terrain} />
+            <Info
+                icon="waves"
+                label="Surface Water"
+                value={planet.surface_water}
+            />
+        </>
     )
 }

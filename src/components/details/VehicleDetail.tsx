@@ -13,7 +13,9 @@ type Props = {
 export default function VehicleDetail({ vehicle }: Props) {
     return (
         <>
-            <FullVehicleInfos vehicle={vehicle} />
+            <Section title="VEHICLE">
+                <FullVehicleInfos vehicle={vehicle} />
+            </Section>
 
             {!!vehicle.pilots.length && (
                 <Section title="PILOTS">

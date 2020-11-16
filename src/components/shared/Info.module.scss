@@ -1,0 +1,18 @@
+.vCentered {
+    display: flex;
+    align-items: center;
+}
+
+.info {
+    margin: 0.5em 0;
+
+    .icon {
+        margin-right: 0.5em;
+        font-size: 2em;
+    }
+
+    .label {
+        margin-right: 0.7em;
+        font-weight: bold;
+    }
+}

@@ -14,7 +14,9 @@ type Props = {
 export default function PersonDetail({ person }: Props) {
     return (
         <>
-            <FullPersonInfos person={person} />
+            <Section title="PERSON">
+                <FullPersonInfos person={person} />
+            </Section>
 
             {!!person.films.length && (
                 <Section title="FILMS">
