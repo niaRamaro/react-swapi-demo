@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Info from '../../shared/Info'
+import ShortSpeciesInfos from './ShortSpeciesInfos'
 import { SpeciesInfos } from '../../../types/species'
 
 type Props = {
@@ -10,17 +11,7 @@ type Props = {
 export default function FullSpeciesInfos({ species }: Props) {
     return (
         <>
-            <Info icon="people" label="Name" value={species.name} />
-            <Info
-                icon="category"
-                label="Classification"
-                value={species.classification}
-            />
-            <Info
-                icon="psychology"
-                label="Designation"
-                value={species.designation}
-            />
+            <ShortSpeciesInfos species={species} />
             <Info
                 icon="height"
                 label="Average Height"

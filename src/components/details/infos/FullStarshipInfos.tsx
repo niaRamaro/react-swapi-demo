@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Info from '../../shared/Info'
+import ShortStarshipInfos from './ShortStarshipInfos'
 import { StarshipInfos } from '../../../types/starship'
 
 type Props = {
@@ -10,22 +11,7 @@ type Props = {
 export default function FullStarshipInfos({ starship }: Props) {
     return (
         <>
-            <Info
-                icon="airplanemode_active"
-                label="Name"
-                value={starship.name}
-            />
-            <Info icon="scatter_plot" label="Model" value={starship.model} />
-            <Info
-                icon="category"
-                label="Starship Class"
-                value={starship.starship_class}
-            />
-            <Info
-                icon="corporate_fare"
-                label="Manufacturer"
-                value={starship.manufacturer}
-            />
+            <ShortStarshipInfos starship={starship} />
             <Info
                 icon="credit_card"
                 label="Cost In Credits"

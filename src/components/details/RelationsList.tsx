@@ -1,11 +1,12 @@
 import React from 'react'
 
-import FilmListItem from './listItems/FilmListItem'
-import PersonListItem from './listItems/PersonListItem'
-import PlanetListItem from './listItems/PlanetListItem'
-import SpeciesListIten from './listItems/SpeciesListItem'
-import StarshipListItem from './listItems/StarshipListItem'
-import VehicleListItem from './listItems/VehicleListItem'
+import Card from '../shared/Card'
+import ShortFilmInfos from './infos/ShortFilmInfos'
+import ShortPersonInfos from './infos/ShortPersonInfos'
+import ShortPlanetInfos from './infos/ShortPlanetInfos'
+import ShortSpeciesInfos from './infos/ShortSpeciesInfos'
+import ShortStarshipInfos from './infos/ShortStarshipInfos'
+import ShortVehicleInfos from './infos/ShortVehicleInfos'
 import { FilmInfos } from '../../types/film'
 import { PersonInfos } from '../../types/person'
 import { PlanetInfos } from '../../types/planet'
@@ -22,22 +23,22 @@ type Props = {
 
 const itemMap = {
     [RESSOURCES.FILMS]: (film: SwapiInfos, key: number) => (
-        <FilmListItem film={film as FilmInfos} key={key} />
+        <ShortFilmInfos film={film as FilmInfos} key={key} />
     ),
     [RESSOURCES.PEOPLE]: (person: SwapiInfos, key: number) => (
-        <PersonListItem person={person as PersonInfos} key={key} />
+        <ShortPersonInfos person={person as PersonInfos} key={key} />
     ),
     [RESSOURCES.PLANETS]: (planet: SwapiInfos, key: number) => (
-        <PlanetListItem planet={planet as PlanetInfos} key={key} />
+        <ShortPlanetInfos planet={planet as PlanetInfos} key={key} />
     ),
     [RESSOURCES.SPECIES]: (species: SwapiInfos, key: number) => (
-        <SpeciesListIten species={species as SpeciesInfos} key={key} />
+        <ShortSpeciesInfos species={species as SpeciesInfos} key={key} />
     ),
     [RESSOURCES.STARSHIPS]: (starship: SwapiInfos, key: number) => (
-        <StarshipListItem starship={starship as StarshipInfos} key={key} />
+        <ShortStarshipInfos starship={starship as StarshipInfos} key={key} />
     ),
     [RESSOURCES.VEHICLES]: (vehicle: SwapiInfos, key: number) => (
-        <VehicleListItem vehicle={vehicle as VehicleInfos} key={key} />
+        <ShortVehicleInfos vehicle={vehicle as VehicleInfos} key={key} />
     )
 }
 
@@ -46,7 +47,9 @@ export default function RelationsList({ type, relations }: Props) {
 
     return (
         <>
-            <div>{relations.map((item, index) => component(item, index))}</div>
+            {relations.map((item, index) => (
+                <Card>{component(item, index)}</Card>
+            ))}
         </>
     )
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 
 import FullSpeciesInfos from './infos/FullSpeciesInfos'
-import PlanetListItem from './listItems/PlanetListItem'
 import RelationsList from './RelationsList'
 import Section from '../shared/Section'
+import ShortPlanetInfos from './infos/ShortPlanetInfos'
 import { FullSpecies } from '../../types/species'
 import { RESSOURCES } from '../../constants/search'
 
@@ -20,7 +20,7 @@ export default function SpeciesDetail({ species }: Props) {
 
             {!!species.homeworld && (
                 <Section title="HOMEWORLD">
-                    <PlanetListItem planet={species.homeworld} />
+                    <ShortPlanetInfos planet={species.homeworld} />
                 </Section>
             )}
             {!!species.people.length && (

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Info from '../../shared/Info'
+import ShortVehicleInfos from './ShortVehicleInfos'
 import { VehicleInfos } from '../../../types/vehicle'
 
 type Props = {
@@ -10,18 +11,7 @@ type Props = {
 export default function FullVehicleInfos({ vehicle }: Props) {
     return (
         <>
-            <Info icon="directions_car" label="Name" value={vehicle.name} />
-            <Info icon="scatter_plot" label="Model" value={vehicle.model} />
-            <Info
-                icon="category"
-                label="Vehicle Class"
-                value={vehicle.vehicle_class}
-            />
-            <Info
-                icon="corporate_fare"
-                label="Manufacturer"
-                value={vehicle.manufacturer}
-            />
+            <ShortVehicleInfos vehicle={vehicle} />
             <Info icon="straighten" label="Length" value={vehicle.length} />
             <Info
                 icon="credit_card"

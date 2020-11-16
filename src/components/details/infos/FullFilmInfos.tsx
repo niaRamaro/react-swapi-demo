@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Info from '../../shared/Info'
+import ShortFilmInfos from './ShortFilmInfos'
 import { FilmInfos } from '../../../types/film'
 
 type Props = {
@@ -10,13 +11,7 @@ type Props = {
 export default function FullFilmInfos({ film }: Props) {
     return (
         <>
-            <Info icon="movie" label="Title" value={film.title} />
-            <Info
-                icon="format_list_numbered"
-                label="Episode"
-                value={`${film.episode_id}`}
-            />
-            <Info icon="today" label="Release Date" value={film.release_date} />
+            <ShortFilmInfos film={film} />
             <Info icon="face" label="Director" value={film.director} />
             <Info icon="face" label="Producer" value={film.producer} />
             <Info

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Info from '../../shared/Info'
+import ShortPersonInfos from './ShortPersonInfos'
 import { PersonInfos } from '../../../types/person'
 
 type Props = {
@@ -10,9 +11,7 @@ type Props = {
 export default function FullPersonInfos({ person }: Props) {
     return (
         <>
-            <Info icon="face" label="Name" value={person.name} />
-            <Info icon="wc" label="Gender" value={person.gender} />
-            <Info icon="event" label="Birth Year" value={person.birth_year} />
+            <ShortPersonInfos person={person} />
             <Info icon="palette" label="Skin Color" value={person.skin_color} />
             <Info icon="palette" label="Eye Color" value={person.eye_color} />
             <Info icon="palette" label="Hair Color" value={person.hair_color} />

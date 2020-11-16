@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Info from '../../shared/Info'
+import ShortPlanetInfos from './ShortPlanetInfos'
 import { PlanetInfos } from '../../../types/planet'
 
 type Props = {
@@ -10,7 +11,7 @@ type Props = {
 export default function FullPlanetInfos({ planet }: Props) {
     return (
         <>
-            <Info icon="public" label="Name" value={planet.name} />
+            <ShortPlanetInfos planet={planet} />{' '}
             <Info
                 icon="not_interested"
                 label="Diameter"
@@ -31,9 +32,6 @@ export default function FullPlanetInfos({ planet }: Props) {
                 label="Gravity"
                 value={planet.gravity}
             />
-            <Info icon="groups" label="Population" value={planet.population} />
-            <Info icon="wb_sunny" label="Climate" value={planet.climate} />
-            <Info icon="terrain" label="Terrain" value={planet.terrain} />
             <Info
                 icon="waves"
                 label="Surface Water"
