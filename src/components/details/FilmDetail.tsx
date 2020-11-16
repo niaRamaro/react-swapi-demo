@@ -4,7 +4,7 @@ import FullFilmInfos from './infos/FullFilmInfos'
 import RelationsList from './RelationsList'
 import Section from '../shared/Section'
 import { FullFilm } from '../../types/film'
-import { RELATION_ITEM_PER_ROW, RESSOURCES } from '../../constants/search'
+import { RESSOURCES } from '../../constants/search'
 
 type Props = {
     film: FullFilm

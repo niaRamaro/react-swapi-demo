@@ -26,41 +26,41 @@ export default function SearchResults({ type, keyword, className }: Props) {
     const history = useHistory()
     const location = useLocation()
 
-    const fetchResults = async () => {
-        setIsLoading(true)
+    useEffect(() => {
+        const setQueryParams = () =>
+            history.push({
+                pathname: location.pathname,
+                search: new URLSearchParams({ type, keyword }).toString()
+            })
 
-        if (pendingRequest) {
-            pendingRequest.abort()
-        }
+        const fetchResults = async () => {
+            setIsLoading(true)
 
-        const controller = new AbortController()
-        setPendingRequest(controller)
+            if (pendingRequest) {
+                pendingRequest.abort()
+            }
 
-        try {
-            const { body, status } = await searchAPI(
-                { type, keyword },
-                controller.signal
-            )
-            setPendingRequest(null)
-            setResults(body)
-            setHasError(status !== 200)
-            setIsLoading(false)
-        } catch (e) {
-            setPendingRequest(null)
-            if (e.name !== 'AbortError') {
-                setHasError(true)
+            const controller = new AbortController()
+            setPendingRequest(controller)
+
+            try {
+                const { body, status } = await searchAPI(
+                    { type, keyword },
+                    controller.signal
+                )
+                setPendingRequest(null)
+                setResults(body)
+                setHasError(status !== 200)
                 setIsLoading(false)
+            } catch (e) {
+                setPendingRequest(null)
+                if (e.name !== 'AbortError') {
+                    setHasError(true)
+                    setIsLoading(false)
+                }
             }
         }
-    }
 
-    const setQueryParams = () =>
-        history.push({
-            pathname: location.pathname,
-            search: new URLSearchParams({ type, keyword }).toString()
-        })
-
-    useEffect(() => {
         setQueryParams()
         fetchResults()
     }, [keyword, type])

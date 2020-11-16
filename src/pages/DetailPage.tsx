@@ -50,20 +50,23 @@ export default function DetailPage() {
     const [data, setData] = useState<SwapiDetail>()
     const [error, setError] = useState(false)
 
-    const getDetail = async () => {
-        try {
-            const { body, status } = await getDetailAPI(type as RESSOURCES, +id)
-
-            setData(body)
-            setError(status !== 200)
-            setLoading(false)
-        } catch (e) {
-            setError(true)
-            setLoading(false)
-        }
-    }
-
     useEffect(() => {
+        const getDetail = async () => {
+            try {
+                const { body, status } = await getDetailAPI(
+                    type as RESSOURCES,
+                    +id
+                )
+
+                setData(body)
+                setError(status !== 200)
+                setLoading(false)
+            } catch (e) {
+                setError(true)
+                setLoading(false)
+            }
+        }
+
         getDetail()
     }, [type, id])
 
