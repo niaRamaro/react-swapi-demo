@@ -4,5 +4,9 @@
     .list {
         flex: 1;
         display: flex;
+
+        .button {
+            width: 100%;
+        }
     }
 }

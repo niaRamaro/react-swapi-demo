@@ -1,4 +1,5 @@
 import React, { useState, useEffect, CSSProperties } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 import Button from '../shared/Button'
 import Card from '../shared/Card'
@@ -48,6 +49,7 @@ const itemMap = {
 const itemMargin = 1
 
 export default function RelationsList({ type, relations }: Props) {
+    const { search } = useLocation()
     const itemsPerRow = RELATION_ITEM_PER_ROW[type]
     const getItemComponent = itemMap[type]
     const [start, setStart] = useState(0)
@@ -84,6 +86,11 @@ export default function RelationsList({ type, relations }: Props) {
                 {displayedItems.map((item) => (
                     <Card style={itemStyle} key={item.id}>
                         {getItemComponent(item)}
+                        <Link to={{ pathname: `/${type}/${item.id}`, search }}>
+                            <Button className={styles.button}>
+                                Go to detail
+                            </Button>
+                        </Link>
                     </Card>
                 ))}
             </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useHistory, useLocation, useParams } from 'react-router-dom'
 
 import Button from '../components/shared/Button'
 import FilmDetail from '../components/details/FilmDetail'
@@ -45,6 +45,7 @@ const detailMap = {
 export default function DetailPage() {
     const { type, id } = useParams<{ id: string; type: string }>()
     const { search } = useLocation()
+    const history = useHistory()
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState<SwapiDetail>()
     const [error, setError] = useState(false)
@@ -64,6 +65,12 @@ export default function DetailPage() {
 
     useEffect(() => {
         getDetail()
+    }, [type, id])
+
+    useEffect(() => {
+        const unlisten = history.listen(() => setLoading(true))
+
+        return () => unlisten()
     }, [])
 
     const showContent = () => {
@@ -77,6 +84,7 @@ export default function DetailPage() {
             }
         }
     }
+
     return (
         <div className={styles.main}>
             <div className={styles.buttonContainer}>
