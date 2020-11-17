@@ -33,7 +33,11 @@ export default function Homepage() {
                 onChange={onSearchChange}
             />
             {showResults && (
-                <SearchResults type={type} keyword={throttledKeyword} />
+                <SearchResults
+                    type={type}
+                    keyword={throttledKeyword}
+                    className={styles.results}
+                />
             )}
         </div>
     )
