@@ -1,4 +1,5 @@
 import React, { useState, useRef, CSSProperties, useEffect } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 
 import Carousel from '../shared/Carousel'
@@ -83,13 +84,20 @@ export default function RelationsList({ type, relations }: Props) {
                 id="portal-root"
             ></div>
 
-            {isTooltipOpen && (
-                <Portal mount={portalMount.current}>
-                    <Tooltip coords={tooltipCoordinates as TooltipCoordinates}>
-                        {renderRelation(selectedRelation as SwapiInfos, true)}
-                    </Tooltip>
-                </Portal>
-            )}
+            <AnimatePresence>
+                {isTooltipOpen && (
+                    <Portal mount={portalMount.current}>
+                        <Tooltip
+                            coords={tooltipCoordinates as TooltipCoordinates}
+                        >
+                            {renderRelation(
+                                selectedRelation as SwapiInfos,
+                                true
+                            )}
+                        </Tooltip>
+                    </Portal>
+                )}
+            </AnimatePresence>
         </>
     )
 }

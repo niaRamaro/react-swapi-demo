@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 import Card from './Card'
 
@@ -16,8 +17,13 @@ type Props = React.DetailedHTMLProps<
 
 export default function Tooltip({ children, coords }: Props) {
     return (
-        <div style={{ position: 'absolute', ...coords }}>
+        <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: [-10, 0] }}
+            exit={{ y: -750 }}
+            style={{ position: 'absolute', ...coords }}
+        >
             <Card>{children}</Card>
-        </div>
+        </motion.div>
     )
 }
