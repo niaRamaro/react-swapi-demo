@@ -7,13 +7,15 @@ import ShortPlanetInfos from './infos/ShortPlanetInfos'
 import { FullSpecies } from '../../types/species'
 import { RESSOURCES } from '../../constants/search'
 
+import styles from './Details.module.scss'
+
 type Props = {
     species: FullSpecies
 }
 
 export default function SpeciesDetail({ species }: Props) {
     return (
-        <>
+        <div className={styles.detail}>
             <Section title="SPECIES">
                 <FullSpeciesInfos species={species} />
             </Section>
@@ -39,6 +41,6 @@ export default function SpeciesDetail({ species }: Props) {
                     />
                 </Section>
             )}
-        </>
+        </div>
     )
 }

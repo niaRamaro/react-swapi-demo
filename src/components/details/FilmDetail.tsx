@@ -6,13 +6,15 @@ import Section from '../shared/Section'
 import { FullFilm } from '../../types/film'
 import { RESSOURCES } from '../../constants/search'
 
+import styles from './Details.module.scss'
+
 type Props = {
     film: FullFilm
 }
 
 export default function FilmDetail({ film }: Props) {
     return (
-        <>
+        <div className={styles.detail}>
             <Section title="FILM">
                 <FullFilmInfos film={film} />
             </Section>
@@ -57,6 +59,6 @@ export default function FilmDetail({ film }: Props) {
                     />
                 </Section>
             )}
-        </>
+        </div>
     )
 }

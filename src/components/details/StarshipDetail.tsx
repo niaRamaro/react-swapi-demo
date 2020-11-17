@@ -6,13 +6,15 @@ import Section from '../shared/Section'
 import { FullStarship } from '../../types/starship'
 import { RESSOURCES } from '../../constants/search'
 
+import styles from './Details.module.scss'
+
 type Props = {
     starship: FullStarship
 }
 
 export default function StarshipDetail({ starship }: Props) {
     return (
-        <>
+        <div className={styles.detail}>
             <Section title="STARSHIP">
                 <FullStarshipInfos starship={starship} />
             </Section>
@@ -33,6 +35,6 @@ export default function StarshipDetail({ starship }: Props) {
                     />
                 </Section>
             )}
-        </>
+        </div>
     )
 }

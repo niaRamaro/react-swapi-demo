@@ -6,13 +6,15 @@ import Section from '../shared/Section'
 import { FullVehicle } from '../../types/vehicle'
 import { RESSOURCES } from '../../constants/search'
 
+import styles from './Details.module.scss'
+
 type Props = {
     vehicle: FullVehicle
 }
 
 export default function VehicleDetail({ vehicle }: Props) {
     return (
-        <>
+        <div className={styles.detail}>
             <Section title="VEHICLE">
                 <FullVehicleInfos vehicle={vehicle} />
             </Section>
@@ -33,6 +35,6 @@ export default function VehicleDetail({ vehicle }: Props) {
                     />
                 </Section>
             )}
-        </>
+        </div>
     )
 }

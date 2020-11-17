@@ -6,13 +6,15 @@ import Section from '../shared/Section'
 import { FullPlanet } from '../../types/planet'
 import { RESSOURCES } from '../../constants/search'
 
+import styles from './Details.module.scss'
+
 type Props = {
     planet: FullPlanet
 }
 
 export default function PlanetDetail({ planet }: Props) {
     return (
-        <>
+        <div className={styles.detail}>
             <Section title="PLANET">
                 <FullPlanetInfos planet={planet} />
             </Section>
@@ -33,6 +35,6 @@ export default function PlanetDetail({ planet }: Props) {
                     />
                 </Section>
             )}
-        </>
+        </div>
     )
 }

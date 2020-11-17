@@ -7,13 +7,15 @@ import ShortPlanetInfos from './infos/ShortPlanetInfos'
 import { FullPerson } from '../../types/person'
 import { RESSOURCES } from '../../constants/search'
 
+import styles from './Details.module.scss'
+
 type Props = {
     person: FullPerson
 }
 
 export default function PersonDetail({ person }: Props) {
     return (
-        <>
+        <div className={styles.detail}>
             <Section title="PERSON">
                 <FullPersonInfos person={person} />
             </Section>
@@ -55,6 +57,6 @@ export default function PersonDetail({ person }: Props) {
                     />
                 </Section>
             )}
-        </>
+        </div>
     )
 }
