@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useThrottle } from 'ahooks'
 
 import SearchResults from '../components/SearchResults'
 import Searchbar from '../components/Searchbar'
@@ -6,7 +7,6 @@ import styles from './HomePage.module.scss'
 import useQueryParams from '../hooks/useQueryParams'
 import { RESSOURCES } from '../constants/search'
 import { SearchQuery } from '../types/search'
-import { useThrottle } from 'ahooks'
 
 export default function Homepage() {
     const queryParams = useQueryParams(['type', 'keyword'])
@@ -33,11 +33,7 @@ export default function Homepage() {
                 onChange={onSearchChange}
             />
             {showResults && (
-                <SearchResults
-                    type={type}
-                    keyword={throttledKeyword}
-                    className={styles.results}
-                />
+                <SearchResults type={type} keyword={throttledKeyword} />
             )}
         </div>
     )

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import { useHistory, useLocation } from 'react-router-dom'
 
 import Loader from './shared/Loader'
@@ -105,7 +106,11 @@ export default function SearchResults({ type, keyword, className }: Props) {
         }
 
         return (
-            <>
+            <motion.div
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: [10, 0], opacity: 1 }}
+                className={styles.results}
+            >
                 {Object.keys(results).map(
                     (ressourceType) =>
                         results[ressourceType as RESSOURCES] && (
@@ -130,7 +135,7 @@ export default function SearchResults({ type, keyword, className }: Props) {
                             </Section>
                         )
                 )}
-            </>
+            </motion.div>
         )
     }
 

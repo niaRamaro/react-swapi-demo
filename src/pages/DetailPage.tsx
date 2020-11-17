@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 import Button from '../components/shared/Button'
 import FilmDetail from '../components/details/FilmDetail'
@@ -83,7 +84,15 @@ export default function DetailPage() {
             if (error) {
                 return <h1>Error</h1>
             } else if (data) {
-                return detailMap[type as RESSOURCES](data)
+                return (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1 }}
+                    >
+                        {detailMap[type as RESSOURCES](data)}
+                    </motion.div>
+                )
             }
         }
     }
