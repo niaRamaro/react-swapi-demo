@@ -59,6 +59,9 @@ export default function DetailPage() {
                     +id
                 )
 
+                document.title = `${type.toUpperCase()} - ${
+                    body?.name || body?.title
+                }`
                 setData(body)
                 setError(status !== 200)
                 setLoading(false)

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useThrottle } from 'ahooks'
+import { useThrottle, useTitle } from 'ahooks'
 
 import SearchResults from '../components/SearchResults'
 import Searchbar from '../components/Searchbar'
@@ -9,6 +9,7 @@ import { RESSOURCES } from '../constants/search'
 import { SearchQuery } from '../types/search'
 
 export default function Homepage() {
+    useTitle('Empire Search')
     const queryParams = useQueryParams(['type', 'keyword'])
     const [type, setType] = useState(getType(queryParams.type as RESSOURCES))
     const [keyword, setKeyword] = useState(queryParams.keyword)
