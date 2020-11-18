@@ -14,4 +14,8 @@
         flex: 1;
         display: flex;
     }
+
+    .detail > * {
+        width: 100%;
+    }
 }
