@@ -1,7 +1,6 @@
-import * as config from '../config.json'
 import { RESSOURCES } from '../constants/search'
 
-const BASE_URL = config.api_url
+const BASE_URL = process.env.API_URL || 'http://localhost:3001'
 
 export type APIResponse<T> = {
     status: number
