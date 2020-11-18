@@ -1,14 +1,18 @@
 import React from 'react'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
-import { RESSOURCES } from './constants/search'
-import DetailPage from './pages/DetailPage'
 
+import DetailPage from './pages/DetailPage'
 import Homepage from './pages/HomePage'
+import { RESSOURCES } from './constants/search'
 
 export default function Routes() {
     return (
         <BrowserRouter>
             <Switch>
+                <Route path="/" exact>
+                    <Homepage />
+                </Route>
+
                 <Route
                     path="/:type/:id"
                     render={({ match }) => {
@@ -21,7 +25,8 @@ export default function Routes() {
                         )
                     }}
                 />
-                <Route path="/">
+
+                <Route path="*">
                     <Homepage />
                 </Route>
             </Switch>
