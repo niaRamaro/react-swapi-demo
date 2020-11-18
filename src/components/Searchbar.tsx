@@ -1,9 +1,10 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-import MaterialIcon from './shared/MaterialIcon'
 import { RESSOURCES } from '../constants/search'
 import { SearchQuery } from '../types/search'
+
+import styles from './Searchbar.module.scss'
 
 type Props = {
     initialValue: SearchQuery
@@ -22,30 +23,44 @@ export default function Searchbar({
     })
 
     return (
-        <form className={className} onSubmit={handleSubmit(onChange)}>
-            <input
-                type="text"
-                name="keyword"
-                placeholder="Enter your search here"
-                ref={register}
-                onKeyUp={(_) => onChange(getValues())}
-            />
-
-            <select
-                name="type"
-                ref={register}
-                onChange={(_) => onChange(getValues())}
+        <form
+            className={[className, styles.form].join(' ')}
+            onSubmit={handleSubmit(onChange)}
+        >
+            <div
+                className={[styles.commonContainer, styles.inputContainer].join(
+                    ''
+                )}
             >
-                {types.map((type) => (
-                    <option value={type} key={type}>
-                        {type.toUpperCase()}
-                    </option>
-                ))}
-            </select>
+                <input
+                    className={styles.input}
+                    type="text"
+                    name="keyword"
+                    placeholder="Enter your search here"
+                    ref={register}
+                    onKeyUp={(_) => onChange(getValues())}
+                />
+            </div>
 
-            <button type="submit">
-                <MaterialIcon icon="search" />
-            </button>
+            <div
+                className={[
+                    styles.commonContainer,
+                    styles.selectContainer
+                ].join(' ')}
+            >
+                <select
+                    className={styles.select}
+                    name="type"
+                    ref={register}
+                    onChange={(_) => onChange(getValues())}
+                >
+                    {types.map((type) => (
+                        <option value={type} key={type}>
+                            {type.toUpperCase()}
+                        </option>
+                    ))}
+                </select>
+            </div>
         </form>
     )
 }

@@ -1,0 +1,67 @@
+$input-background: #eee;
+$input-text-inactive: #666;
+$input-text-active: black;
+$height: 45px;
+$padding: 10px;
+$line-height: 3;
+$border: 2px;
+
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form > * {
+    margin: 0 1em;
+}
+
+.inputContainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    padding: $padding;
+    background: $input-background;
+    height: $height;
+    border-bottom: $border solid var(--accent-color);
+
+    .input {
+        flex-grow: 1;
+        line-height: $line-height;
+        vertical-align: middle;
+
+        &::-webkit-input-placeholder {
+            color: $input-text-inactive;
+        }
+    }
+}
+
+.selectContainer {
+    border-bottom: $border solid var(--accent-color);
+    position: relative;
+    display: flex;
+    width: 10em;
+    padding: $padding;
+    height: $height;
+    background: $input-background;
+    line-height: $line-height;
+    overflow: hidden;
+
+    &::after {
+        content: '\25BC';
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 1em;
+        cursor: pointer;
+        pointer-events: none;
+    }
+
+    .select {
+        flex: 2;
+        color: $input-text-active;
+        background: $input-background;
+        cursor: pointer;
+    }
+}
