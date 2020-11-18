@@ -1,6 +1,6 @@
 import { RESSOURCES } from '../constants/search'
 
-const BASE_URL = process.env.API_URL || 'http://localhost:3001'
+const BASE_URL = process.env.REACT_APP_URL_API || 'http://localhost:3001'
 
 export type APIResponse<T> = {
     status: number
