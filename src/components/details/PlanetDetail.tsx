@@ -28,7 +28,7 @@ export default function PlanetDetail({ planet }: Props) {
                 </Section>
             )}
             {!!planet.films.length && (
-                <Section title={`PLANETS (${planet.films.length})`}>
+                <Section title={`FILMS (${planet.films.length})`}>
                     <RelationsList
                         type={RESSOURCES.FILMS}
                         relations={planet.films}
