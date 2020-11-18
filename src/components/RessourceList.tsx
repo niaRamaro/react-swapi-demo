@@ -20,7 +20,7 @@ export default function RessourceList({ type, results, onLoadMore }: Props) {
         <InfiniteScroll
             loadMore={() => onLoadMore(type, results.next)}
             hasMore={!!results.next}
-            loader={<Loader key={type} />}
+            loader={<Loader key={type} style={{ margin: '1em auto' }} />}
             useWindow={false}
         >
             {results.results.map((result: any, index: number) => (

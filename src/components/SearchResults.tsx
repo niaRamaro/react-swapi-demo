@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useHistory, useLocation } from 'react-router-dom'
 
-import Loader from './shared/Loader'
+import CenteredLoader from './shared/CenteredLoader'
 import RessourceList from './RessourceList'
 import Section from './shared/Section'
 import styles from './SearchResults.module.scss'
@@ -61,7 +61,10 @@ export default function SearchResults({ type, keyword, className }: Props) {
         const setQueryParams = () =>
             history.push({
                 pathname: location.pathname,
-                search: new URLSearchParams({ type, keyword }).toString()
+                search: new URLSearchParams({
+                    type: type || '',
+                    keyword: keyword || ''
+                }).toString()
             })
 
         const fetchResults = async () => {
@@ -98,7 +101,7 @@ export default function SearchResults({ type, keyword, className }: Props) {
 
     const showContent = () => {
         if (isLoading) {
-            return <Loader />
+            return <CenteredLoader />
         }
 
         if (hasError) {

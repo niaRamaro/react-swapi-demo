@@ -3,8 +3,8 @@ import { Link, useHistory, useLocation, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 import Button from '../components/shared/Button'
+import CenteredLoader from '../components/shared/CenteredLoader'
 import FilmDetail from '../components/details/FilmDetail'
-import Loader from '../components/shared/Loader'
 import MaterialIcon from '../components/shared/MaterialIcon'
 import PersonDetail from '../components/details/PersonDetail'
 import PlanetDetail from '../components/details/PlanetDetail'
@@ -79,7 +79,7 @@ export default function DetailPage() {
 
     const showContent = () => {
         if (loading) {
-            return <Loader />
+            return <CenteredLoader />
         } else {
             if (error) {
                 return <h1>Error</h1>
@@ -108,7 +108,7 @@ export default function DetailPage() {
                 </Link>
             </div>
 
-            {showContent()}
+            <div className={styles.detail}>{showContent()}</div>
         </div>
     )
 }
