@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 
 import Button from '../components/shared/Button'
 import CenteredLoader from '../components/shared/CenteredLoader'
+import Error from '../components/shared/Error'
 import FilmDetail from '../components/details/FilmDetail'
 import MaterialIcon from '../components/shared/MaterialIcon'
 import PersonDetail from '../components/details/PersonDetail'
@@ -85,7 +86,7 @@ export default function DetailPage() {
             return <CenteredLoader />
         } else {
             if (error) {
-                return <h1>Error</h1>
+                return <Error />
             } else if (data) {
                 return (
                     <motion.div

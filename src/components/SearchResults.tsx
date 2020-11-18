@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useHistory, useLocation } from 'react-router-dom'
 
 import CenteredLoader from './shared/CenteredLoader'
+import Error from './shared/Error'
 import RessourceList from './RessourceList'
 import Section from './shared/Section'
 import styles from './SearchResults.module.scss'
@@ -105,7 +106,7 @@ export default function SearchResults({ type, keyword, className }: Props) {
         }
 
         if (hasError) {
-            return <p>Error</p>
+            return <Error />
         }
 
         return (
