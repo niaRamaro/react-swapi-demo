@@ -5,9 +5,11 @@ import DetailPage from './pages/DetailPage'
 import Homepage from './pages/HomePage'
 import { RESSOURCES } from './constants/search'
 
+const baseName = process.env.REACT_APP_ROUTE_BASENAME || '/'
+
 export default function Routes() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={baseName}>
             <Switch>
                 <Route path="/" exact>
                     <Homepage />
